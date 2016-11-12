@@ -1,0 +1,22 @@
+br
+.top-bar
+  .top-bar-left
+    ul.menu
+      li
+        = active_link_to 'Home', root_path, active: :exclusive, wrap_tag: :li
+      - if user_signed_in?
+        = active_link_to 'post', new_posts, active: :exclusive, wrap_tag: :li
+
+  .top-bar-right
+    - if user_signed_in?
+      ul.menu
+        li
+          = active_link_to 'edit', edit_user_registration_path, active: :exclusive, wrap_tag: :li
+        li
+          = active_link_to 'sign out', destroy_user_session_path, :method => :delete, active: :exclusive, wrap_tag: :li
+    - else
+      ul.menu
+        li
+          = active_link_to 'sign in', user_session_path, active: :exclusive, wrap_tag: :li
+        li
+          = active_link_to 'sign up', new_user_registration_path, active: :exclusive, wrap_tag: :li
