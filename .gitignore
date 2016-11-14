@@ -20,3 +20,4 @@ vendor/ruby
 .pryrc
 config/database.yml
 .idea
+.DS_Store
