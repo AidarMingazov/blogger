@@ -1,0 +1,19 @@
+div
+	= @user.email
+div 
+	| following   
+	= @user.following.count
+div
+	| followers 
+	= @user.followers.count
+div
+	| posts 
+	= @user.posts.count
+
+
+- unless current_user.nil?
+  div id="follow_form"
+  - if current_user.following?(@user)
+    = render 'unfollow'
+  - else
+    = render 'follow'
