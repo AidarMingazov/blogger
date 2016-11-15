@@ -22,10 +22,8 @@ gem 'slim'
 gem 'devise'
 gem 'pundit'
 
-# for draper
 gem 'activemodel-serializers-xml', github: 'rails/activemodel-serializers-xml'
-gem 'draper'
-
+gem 'draper', github: 'audionerd/draper', branch: 'rails5'
 
 group :development, :test do
   gem 'byebug', platform: :mri
