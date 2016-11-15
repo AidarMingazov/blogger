@@ -20,8 +20,12 @@ gem 'slim'
 
 # all other gems
 gem 'devise'
-# gem 'draper'
 gem 'pundit'
+
+# for draper
+gem 'activemodel-serializers-xml', github: 'rails/activemodel-serializers-xml'
+gem 'draper'
+
 
 group :development, :test do
   gem 'byebug', platform: :mri
