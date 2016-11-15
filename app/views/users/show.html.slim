@@ -1,6 +1,11 @@
+br
 div
 	= @user.email
-
+div
+	= @user.full_name
+div
+	| joined: 
+ 	= @user.joined_at
 div
 	| following 
 	strong id="following"
@@ -11,7 +16,8 @@ div
 		= @user.followers.count
 div
 	| posts 
-	= @user.posts.count
+	strong
+		= @user.posts.count
 
 - unless current_user.nil?
   div id="follow_form"
