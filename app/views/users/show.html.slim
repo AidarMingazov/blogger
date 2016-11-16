@@ -19,9 +19,10 @@ div
 	strong
 		= @user.posts.count
 
+
 - unless current_user.nil?
-	div id="follow_form"
+	div id="follow"
 		- if current_user.following?(@user)
-			= link_to 'unfollow', user_relationship_path(@user), remote: true, method: :delete
+			= render 'unfollow'
 		- else
-			= link_to 'follow', user_relationships_path(@user), remote: true, method: :post
+			= render 'follow'

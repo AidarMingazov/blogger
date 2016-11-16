@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  root to: 'application#home'
+  root to: 'application#main'
 
   devise_for :users
 
