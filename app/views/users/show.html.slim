@@ -23,6 +23,6 @@ div
 - unless current_user.nil?
 	div id="follow"
 		- if current_user.following?(@user)
-			= render 'unfollow'
+			= link_to 'unfollow', user_relationship_path(@user), remote: true, method: :delete
 		- else
-			= render 'follow'
+			= link_to 'follow', user_relationships_path(@user), remote: true, method: :post
