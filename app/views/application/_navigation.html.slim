@@ -2,7 +2,7 @@
   nav.top-bar-left
     ul.menu
       li
-        = active_link_to 'Home', root_path, active: :exclusive, wrap_tag: :li
+        = active_link_to 'Main', root_path, active: :exclusive, wrap_tag: :li
       - if user_signed_in?
         li
           = active_link_to 'post', new_post_path, active: :exclusive, wrap_tag: :li
