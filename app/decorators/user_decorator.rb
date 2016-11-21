@@ -15,10 +15,10 @@ class UserDecorator < Draper::Decorator
   # end
 
   def full_name
-    if first_name.blank? && second_name.blank?
+    if first_name.blank? && last_name.blank?
       'No name provided.'
     else
-      "#{ first_name } #{ second_name }".strip
+      "#{ first_name } #{ last_name }".strip
     end
   end
 
