@@ -1,8 +1,8 @@
-.title-bar data-hide-for="medium" data-responsive-toggle="nav-menu" 
+.title-bar
   nav.top-bar-left
     ul.menu
       li
-        = active_link_to 'Main', root_path, active: :exclusive, wrap_tag: :li
+        = active_link_to 'main', root_path, active: :exclusive, wrap_tag: :li
       - if user_signed_in?
         li
           = active_link_to 'post', new_post_path, active: :exclusive, wrap_tag: :li

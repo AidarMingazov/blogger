@@ -11,10 +11,10 @@
 .title-bar {
   padding: 0 .5rem; }
 
-.menu-icon,
-.title-bar-title {
-  position: relative;
-  top: 10px; }
+.title-bar {
+  background: #2c3840;
+  color: #ffffff;
+}
 
 /* Medium-Up Navigation */
 @media only screen and (min-width: 40rem) {
@@ -42,16 +42,56 @@
       float: right; } }
 
 
-/* statictic button */
+/* user view */
+.top-line{
+  height: 200px;
+  background: #074e68;
+}
 .button.hollow{
-  border: 2px solid #2199e8;
+  border-bottom: 2px solid #2199e8;
   border-left: none;
   border-right: none;
-  line-height: 1;
+  border-top: none;
   font-size: 1rem;
+  margin: 0;
+  padding: 15px 13px;
+}
+
+.row.header{
+  background: #eee;
+}
+.row.full-width{
+  width: 100%;
+  max-width: 100%; 
 }
 
 
+.row.content{
+  position: relative;
+}
+.avatar{
+  height: 200px;
+  width: 200px;
+  position: absolute;
+  top: -180px;
+} 
+
+.content{
+  padding-left: 50px; 
+}
+
+.follow{
+  margin-top:30px;
+}
+
+.full-name{
+  font-size: 20px;
+  font-weight: bold;
+}
+.at_nickname{
+  text-decoration: none;
+  color: gray;
+}
 
 
 

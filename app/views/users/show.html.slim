@@ -1,54 +1,43 @@
-br
-br
-br
-.row.medium-uncollapse.large-collapse
-	.small-4.columns
-	.small-8.columns
-		= link_to root_path, class: "hollow button small-2 columns static" do
-			|post
-			.div
-				= @user.posts.count
-		end
+.top-line
+.row.large-collapse.full-width.header
+  .large-4.colomns
+  .large-8.columns
+    = link_to user_path, class: "hollow button small-2 columns static" do
+      |post
+      .div
+        = @user.posts.count
+    end
 
-		= link_to root_path, class: "hollow button small-2 columns" do
-			|following
-			.div
-				= @user.following.count
-		end
+    = link_to "#", class: "hollow button small-2 columns" do
+      |following
+      .div
+        = @user.following.count
+    end
 
-		= link_to root_path, class: "hollow button small-2 columns" do
-			|followers
-			.div
-				= @user.followers.count
-		end
+    = link_to "#", class: "hollow button small-2 columns" do
+      |followers
+      .div
+        = @user.followers.count
+    end
 
-		.small-6.columns
+.row.full-width.content
+  div
+    img src="/assets/Profile-Avatar.jpg" alt="альтернативный текст" class="avatar"
+  
+  .user-info
+    div class="follow"
+      - if !current_user.nil? && current_user != @user
+        - if current_user.following?(@user)
+          = link_to 'unfollow', user_relationship_path(@user), remote: true, method: :delete
+        - else
+          = link_to 'follow', user_relationships_path(@user), remote: true, method: :post
+      - else 
+        = link_to 'edit', edit_user_registration_path
 
-br
-div
-	= @user.email
-div
-	= @user.full_name
-div
-	| joined: 
- 	= @user.joined_at
-div
-	| following 
-	strong id="following"
-		= @user.following.count
-div
-	| followers 
-	strong id="followers"
-		= @user.followers.count
-div
-	| posts 
-	strong
-		= @user.posts.count
-
-
-- unless current_user.nil?
-	div id="follow"
-		- if current_user.following?(@user)
-			= link_to 'unfollow', user_relationship_path(@user), remote: true, method: :delete
-		- else
-			= link_to 'follow', user_relationships_path(@user), remote: true, method: :post
+    .full-name
+      = @user.full_name
+    div
+      = link_to @user.at_nickname, user_path, class: "at_nickname"
+    div
+      | Joined 
+      = @user.joined_at
