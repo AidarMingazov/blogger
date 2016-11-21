@@ -4,8 +4,7 @@
  *= require foundation_and_overrides
  */
 
-/* Variables */
-/* Small Navigation */
+/* navigator */
 .logo-small {
   float: right; }
 
@@ -41,3 +40,20 @@
     padding-right: 86px; }
     .top-bar-left ul {
       float: right; } }
+
+
+/* statictic button */
+.button.hollow{
+  border: 2px solid #2199e8;
+  border-left: none;
+  border-right: none;
+  line-height: 1;
+  font-size: 1rem;
+}
+
+
+
+
+
+
+

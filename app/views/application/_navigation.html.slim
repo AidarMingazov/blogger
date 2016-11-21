@@ -14,9 +14,9 @@
     - if user_signed_in?
       ul.menu
         li
-          = active_link_to 'edit', edit_user_registration_path, active: :exclusive, wrap_tag: :li
+          = active_link_to 'edit', edit_user_registration_path, active: :exclusive
         li
-          = active_link_to 'sign out', destroy_user_session_path, :method => :delete, active: :exclusive, wrap_tag: :li
+          = active_link_to 'sign out', destroy_user_session_path, :method => :delete, active: :exclusive
     - else
       ul.menu
         li

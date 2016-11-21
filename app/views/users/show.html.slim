@@ -1,4 +1,30 @@
 br
+br
+br
+.row.medium-uncollapse.large-collapse
+	.small-4.columns
+	.small-8.columns
+		= link_to root_path, class: "hollow button small-2 columns static" do
+			|post
+			.div
+				= @user.posts.count
+		end
+
+		= link_to root_path, class: "hollow button small-2 columns" do
+			|following
+			.div
+				= @user.following.count
+		end
+
+		= link_to root_path, class: "hollow button small-2 columns" do
+			|followers
+			.div
+				= @user.followers.count
+		end
+
+		.small-6.columns
+
+br
 div
 	= @user.email
 div
