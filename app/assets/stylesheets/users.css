@@ -1,0 +1,49 @@
+/* user view */
+.top-line{
+  height: 200px;
+  background: #074e68;
+}
+.button.hollow{
+  border-bottom: 2px solid #2199e8;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  font-size: 1rem;
+  margin: 0;
+  padding: 15px 13px;
+}
+
+.row.header{
+  background: #eee;
+}
+.row.full-width{
+  width: 100%;
+  max-width: 100%; 
+}
+
+
+.profile-info{
+  position: relative; 
+  padding-left: 50px;
+  width: 350px;
+  float: left;
+
+}
+.user-info{
+  margin-top: 20px;
+}
+.avatar{
+  height: 200px;
+  width: 200px;
+  position: absolute;
+  top: -180px;
+} 
+
+.full-name{
+  font-size: 20px;
+  font-weight: bold;
+}
+.at_nickname{
+  text-decoration: none;
+  color: gray;
+}

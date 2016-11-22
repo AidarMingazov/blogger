@@ -41,59 +41,7 @@
     .top-bar-left ul {
       float: right; } }
 
-
-/* user view */
-.top-line{
-  height: 200px;
-  background: #074e68;
+.container{
+  background: #f5f8fa;
+  min-height: 100%;
 }
-.button.hollow{
-  border-bottom: 2px solid #2199e8;
-  border-left: none;
-  border-right: none;
-  border-top: none;
-  font-size: 1rem;
-  margin: 0;
-  padding: 15px 13px;
-}
-
-.row.header{
-  background: #eee;
-}
-.row.full-width{
-  width: 100%;
-  max-width: 100%; 
-}
-
-
-.row.content{
-  position: relative;
-}
-.avatar{
-  height: 200px;
-  width: 200px;
-  position: absolute;
-  top: -180px;
-} 
-
-.content{
-  padding-left: 50px; 
-}
-
-.follow{
-  margin-top:30px;
-}
-
-.full-name{
-  font-size: 20px;
-  font-weight: bold;
-}
-.at_nickname{
-  text-decoration: none;
-  color: gray;
-}
-
-
-
-
-

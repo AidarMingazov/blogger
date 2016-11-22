@@ -5,6 +5,8 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id]).decorate
+    @feed = @user.feed
+    @user_post = @user.posts
 	end
 
   def following

@@ -1,13 +1,15 @@
-.top-line
-.row.full-width.content
-  div
-    img src="/assets/Profile-Avatar.jpg" alt="альтернативный текст" class="avatar"
-
-    br
-    .full-name
-      = current_user.full_name
+- if user_signed_in?
+  .top-line
+  .row.full-width.content
     div
-      = link_to current_user.at_nickname, "users/#{current_user.id}", class: "at_nickname"
-    div
-      | Joined 
-      = current_user.joined_at
+      img src="/assets/Profile-Avatar.jpg" alt="альтернативный текст" class="avatar"
+      br
+      .full-name
+        = current_user.full_name
+      div
+        = link_to current_user.at_nickname, "users/#{current_user.id}", class: "at_nickname"
+      div
+        | Joined 
+        = current_user.joined_at
+- else
+  = link_to 'sign in', new_user_session_path
