@@ -1,0 +1,10 @@
+=render 'user_header'
+.row
+  .large-12.colomns.centered
+    br
+    | followers
+    br
+    - @followers.each do |followers|
+      = link_to followers.nickname, "/users/#{followers.id}"
+      br
+

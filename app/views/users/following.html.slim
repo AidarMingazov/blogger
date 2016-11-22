@@ -1,0 +1,9 @@
+=render 'user_header'
+.row
+  .large-12.colomns.centered
+    br
+    | following
+    br
+    - @following.each do |following|
+      = link_to following.full_name, "/users/#{following.id}"
+      br
