@@ -6,17 +6,14 @@
       - if user_signed_in?
         li
           = active_link_to 'post', new_post_path, active: :exclusive, wrap_tag: :li
-        li
-          = active_link_to 'user', current_user, active: :exclusive, wrap_tag: :li
   .top-bar-right
-    - if user_signed_in?
-      ul.menu
+    ul.menu
+      - if user_signed_in?
         li
           = active_link_to 'edit', edit_user_registration_path, active: :exclusive
         li
           = active_link_to 'sign out', destroy_user_session_path, :method => :delete, active: :exclusive
-    - else
-      ul.menu
+      - else
         li
           = active_link_to 'sign in', user_session_path, active: :exclusive, wrap_tag: :li
         li
