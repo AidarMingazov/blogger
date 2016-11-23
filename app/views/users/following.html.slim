@@ -5,5 +5,5 @@
     | following
     br
     - @following.each do |following|
-      = link_to following.full_name, "/users/#{following.id}"
+      = link_to following.at_nickname, "/users/#{following.id}"
       br

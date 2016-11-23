@@ -5,6 +5,6 @@
     | followers
     br
     - @followers.each do |followers|
-      = link_to followers.nickname, "/users/#{followers.id}"
+      = link_to followers.at_nickname, "/users/#{followers.id}"
       br
 

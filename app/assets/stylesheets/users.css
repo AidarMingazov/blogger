@@ -47,3 +47,18 @@
   text-decoration: none;
   color: gray;
 }
+
+
+.who-users{
+  display: inline-block;
+  border: 1px solid black;
+  width: 300px;
+  padding-left: 50px;
+  margin-top: 15px;
+}
+
+
+
+
+
+

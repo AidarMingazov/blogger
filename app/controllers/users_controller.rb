@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
 	def index
-		@users = User.all.decorate
+		@users = User.where('id != ?', current_user.id).decorate
 	end
 
 	def show
+    @who_can_follow_users = User.where('id != ?', current_user.id).decorate
 		@user = User.find(params[:id]).decorate
     @feed = @user.feed
     @user_post = @user.posts

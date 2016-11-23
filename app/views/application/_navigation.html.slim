@@ -8,8 +8,6 @@
           = active_link_to 'post', new_post_path, active: :exclusive, wrap_tag: :li
         li
           = active_link_to 'user', current_user, active: :exclusive, wrap_tag: :li
-        li
-          = active_link_to 'all users', '/users', active: :exclusive, wrap_tag: :li
   .top-bar-right
     - if user_signed_in?
       ul.menu

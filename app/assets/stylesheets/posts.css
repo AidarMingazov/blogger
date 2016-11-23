@@ -5,9 +5,8 @@
   padding-top: 50px;
   width: 500px;
   min-height: 100%;
-
   background: #fff;
-  
+  float: left;
 }
 
 .feed-post{
