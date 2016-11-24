@@ -41,9 +41,9 @@
     .top-bar-left ul {
       float: right; } }
 
-.container{
-  background: #f5f8fa;
-  min-height: 100%;
+body{
+  min-width: 900px;
 }
-
-
+.container{
+  min-height: 500px;
+}

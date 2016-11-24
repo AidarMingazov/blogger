@@ -2,6 +2,6 @@
   |who can follow 
   = link_to 'view all', users_path
   br
-  - @who_can_follow.each do |user|
-    = link_to user.at_nickname, user
+  - @who_can_follow.each do |can_follow|
+    = link_to user.get_nickname(can_follow), can_follow
     br

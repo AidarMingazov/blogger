@@ -6,12 +6,21 @@ html lang="en"
     
     title == content_for?(:title) ? yield(:title) : 'blogger'
 
-    = stylesheet_link_tag "application"
-    = javascript_include_tag "application", "data-turbolinks-track" => true
-    = csrf_meta_tag
+    = csrf_meta_tags
+
+    = stylesheet_link_tag :application
+
+    = javascript_tag "window.App = {}"
 
   body
-    = render 'navigation'
+    = render "navigation"
 
     main.container
       = yield
+
+    = render "footer"
+
+    javascript:
+      App.currentUserData = #{{current_user.to_json}};
+
+    = javascript_include_tag :application
