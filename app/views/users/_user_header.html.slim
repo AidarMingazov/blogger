@@ -5,19 +5,19 @@
     = link_to user_path, class: "hollow button small-2 columns static" do
       |post
       .div
-        = @user.posts.count
+        = user.posts.count
     end
 
     = link_to following_user_path, class: "hollow button small-2 columns" do
       |following
       .div
-        = @user.following.count
+        = user.following.count
     end
 
     = link_to followers_user_path, class: "hollow button small-2 columns" do
       |followers
       .div
-        = @user.followers.count
+        = user.followers.count
     end
 
 
@@ -27,18 +27,18 @@
   
   .user-info
     div class="follow"
-      - if !current_user.nil? && current_user != @user
+      - if !current_user.nil? && current_user != user
         - if current_user.following?(@user)
-          = link_to 'unfollow', user_relationship_path(@user), remote: true, method: :delete
+          = link_to 'unfollow', user_relationship_path(user), remote: true, method: :delete
         - else
-          = link_to 'follow', user_relationships_path(@user), remote: true, method: :post
+          = link_to 'follow', user_relationships_path(user), remote: true, method: :post
       - else 
         = link_to 'edit', edit_user_registration_path
 
     .full-name
-      = @user.full_name
+      = user.full_name
     div
-      = link_to @user.at_nickname, user_path, class: "at_nickname"
+      = link_to user.at_nickname, user_path, class: "at_nickname"
     div
       | Joined 
-      = @user.joined_at
+      = user.joined_at

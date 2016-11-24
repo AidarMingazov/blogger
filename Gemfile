@@ -22,9 +22,10 @@ gem 'slim'
 # all other gems
 gem 'devise'
 gem 'pundit'
-
 gem 'activemodel-serializers-xml', github: 'rails/activemodel-serializers-xml'
 gem 'draper', github: 'audionerd/draper', branch: 'rails5'
+gem 'decent_exposure', '3.0.0'
+gem 'decent_decoration', '~> 0.1.0'
 
 group :development, :test do
   gem 'byebug', platform: :mri
