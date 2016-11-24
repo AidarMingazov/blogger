@@ -1,10 +1,10 @@
-=render 'user_header'
+= render 'user_header'
 .row
   .large-12.colomns.centered
     br
     | followers
     br
-    - @followers.each do |followers|
-      = link_to followers.at_nickname, "/users/#{followers.id}"
+    - user.followers.each do |follower|
+      = link_to user.get_nickname(follower), "/users/#{follower.id}"
       br
 

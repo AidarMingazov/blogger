@@ -1,6 +1,6 @@
-.feed
-  - if current_user == @user
-    - @feed.each do |feed|
+git .feed
+  - if current_user == user
+    - user.feed.each do |feed|
       = link_to "/posts/#{feed.id}" do
         .feed-post
           = feed.title
@@ -9,7 +9,7 @@
           br
       end
   - else
-    - @user_post.each do |feed|
+    - user.posts.each do |feed|
       = link_to "/posts/#{feed.id}" do
         .feed-post
           = feed.title

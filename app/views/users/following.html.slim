@@ -1,9 +1,9 @@
-=render 'user_header'
+= render 'user_header'
 .row
   .large-12.colomns.centered
     br
     | following
     br
-    - @following.each do |following|
-      = link_to following.at_nickname, "/users/#{following.id}"
+    - user.following.each do |following|
+      = link_to user.get_nickname(following), "/users/#{following.id}"
       br

@@ -13,8 +13,11 @@ class UserDecorator < ApplicationDecorator
     "@#{ nickname }"
   end
 
+  def get_nickname(user)
+    "@#{ user.nickname }"
+  end
+
   def joined_at
     created_at.strftime("%B %Y")
   end
-
 end
