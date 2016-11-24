@@ -1,4 +1,4 @@
-git .feed
+.feed
   - if current_user == user
     - user.feed.each do |feed|
       = link_to "/posts/#{feed.id}" do
