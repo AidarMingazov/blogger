@@ -1,9 +1,1 @@
 = render 'user_page'
-.row
-  .large-12.colomns.centered
-    br
-    | following
-    br
-    - user.following.each do |following|
-      = link_to user.get_nickname(following), "/users/#{following.id}"
-      br

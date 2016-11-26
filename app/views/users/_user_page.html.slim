@@ -1,28 +1,46 @@
 .top-line
-.index-page
-  - if user_signed_in?
-    .row
-      .small-4.medium-4.large-4.columns.fixed-width
-        .row
-          .small-6.medium-6.large-5.columns.avatar-container
-            img src="/assets/Profile-Avatar.jpg" alt="avatar" class="index-avatar"
-          .small-6.medium-6.large-7.columns.reset-padding
-            = current_user.full_name
-            br
-            = link_to current_user.at_nickname, "/users/#{current_user.id}", class: "at_nickname"  
-        .row
-        
-        .row.row-distance
-          .small-12.medium-12.show-for-medium-only
-            = render 'users/who_to_follow'
-          .small-12.medium-12.show-for-small-only
-            = render 'users/who_to_follow'
-      .small-8.medium-8.large-8.columns.right-pad
-        .small-12.medium-12.large-8.columns.reset-padding
-          .row.small-12.medium-12.large-12.columns
-            | new post
-          = render 'users/feed'
-        .large-4.columns.show-for-large.reset-padding
-          = render 'users/who_to_follow'
-  - else
-    = link_to 'sign in', new_user_session_path
+.row.full-width.user-statistic
+  .small-4.medium-4.large-4.columns
+  .small-8.medium-8.large-8.columns
+    = link_to user_path, class: "hollow button" do
+      |post
+      .div
+        = user.posts.count
+    end
+    = link_to following_user_path, class: "hollow button" do
+      |following
+      .div
+        = user.following.count
+    end
+    = link_to followers_user_path, class: "hollow button" do
+      |followers
+      .div
+        = user.followers.count
+    end
+.row.full-width.profile-info
+  .small-4.medium-4.large-4.columns.page-avatar-container
+    .small-12.medium-12.large-12.columns.page-avatar-container
+      img src="/assets/Profile-Avatar.jpg" alt="avatar" class="page-avatar"
+      .user-info
+        .follow
+          - if !current_user.nil? && current_user != user
+            - if current_user.following?(user)
+              = link_to 'unfollow', user_relationship_path(user), remote: true, method: :delete
+            - else
+              = link_to 'follow', user_relationships_path(user), remote: true, method: :post
+          - else
+            = link_to 'edit', edit_user_registration_path
+        .full-name
+          = user.full_name
+        div
+          = link_to user.at_nickname, user_path, class: "at_nickname"
+        div
+          | Joined
+          = user.joined_at
+  .small-8.medium-8.large-8.columns
+    - if current_page?(user_path)
+      = render 'feed'
+    - elsif current_page?(following_user_path)
+      = render 'following'
+    - elsif current_page?(followers_user_path)
+      = render 'followers'

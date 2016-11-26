@@ -3,7 +3,9 @@
  *= require_self
  *= require foundation_and_overrides
  */
-
+.bor{
+  border: 1px solid black;
+}
 body{
   min-width: 900px;
   background-color: #f5f8fa;
