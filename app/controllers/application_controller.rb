@@ -1,6 +1,14 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_filter :configure_permitted_parameters, if: :devise_controller?
+  expose_decorated :user
+  expose_decorated :post
+
+  def index
+    unless current_user.nil?
+      @who_can_follow = User.where.not(id: current_user.following.map(&:id) << current_user.id)
+    end
+  end
 
   protected
     def configure_permitted_parameters

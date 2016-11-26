@@ -4,6 +4,17 @@
  *= require foundation_and_overrides
  */
 
+body{
+  min-width: 900px;
+  background-color: #f5f8fa;
+}
+.white-background{
+  background: white;
+}
+footer{
+  padding-top: 200px;
+}
+
 /* navigator */
 .logo-small {
   float: right; }
@@ -40,10 +51,3 @@
     padding-right: 86px; }
     .top-bar-left ul {
       float: right; } }
-
-body{
-  min-width: 900px;
-}
-.container{
-  min-height: 500px;
-}
