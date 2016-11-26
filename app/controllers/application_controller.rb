@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   expose_decorated :user
   expose_decorated :post
 
-  def index
+  def who_to_follow
     unless current_user.nil?
       @who_can_follow = User.where.not(id: current_user.following.map(&:id) << current_user.id)
     end

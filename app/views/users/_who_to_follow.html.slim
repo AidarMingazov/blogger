@@ -1,7 +1,7 @@
-.who-can-follow-container.white-background
-  |who can follow 
+.who-to-follow-container.white-background
+  |who to follow 
   = link_to 'view all', users_path
   br
-  - @who_can_follow.each do |can_follow|
+  - @who_to_follow.each do |can_follow|
     = link_to user.get_nickname(can_follow), can_follow
     br

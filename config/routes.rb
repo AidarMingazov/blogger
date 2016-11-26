@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  root to: 'application#index'
+  root to: 'users#index'
 
   devise_for :users
 
@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   end
 
   get 'users/:id' => 'users#show'
+  get 'who_to_follow' => 'users#who_to_follow'
 
   resources :posts do
     resources :comments

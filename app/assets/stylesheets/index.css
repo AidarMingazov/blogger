@@ -11,9 +11,15 @@
   border-right: 1px solid #017daa;
 }
 .index-profile-statistic{
-  padding: 10px 0;
+  padding: 10px 15px;
   border: 1px solid #017daa;
   border-top: none;
+}
+.statistic-btn{
+  display: block;
+}
+.statistic-btn-container{
+  padding: 0;
 }
 .reset-padding{
   padding: 0;

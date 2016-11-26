@@ -1,37 +1,26 @@
 .feed
-  - if current_user == user
-    - user.feed.each do |feed|
-      = link_to "/posts/#{ feed.id }" do
-        .feed-post
-          = user.full_name_by_post(feed)
-          = user.nickname_by_post(feed)
-          br
-          = feed.title
-          br
-          = feed.body
-          br
-      end
-  - elsif !current_user.nil?
+  / feed
+  - if current_page?(root_url)
     - current_user.feed.each do |feed|
       = link_to "/posts/#{ feed.id }" do
         .feed-post
-          = user.full_name_by_post(feed)
-          = user.nickname_by_post(feed)
+          / = link_to "#{ user.post_owner(feed) }", "/users/#{ feed.user_id }"
+          = "#{ user.post_owner(feed) }"
           br
           = feed.title
           br
           = feed.body
-          br
       end
+    end
+  / user post
   - else
     - user.posts.each do |feed|
       = link_to "/posts/#{ feed.id }" do
         .feed-post
-          = user.full_name_by_post(feed)
-          = user.nickname_by_post(feed)
+          = "#{ user.post_owner(feed) }"
           br
           = feed.title
           br
           = feed.body
-          br
       end
+    end
