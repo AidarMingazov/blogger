@@ -3,6 +3,9 @@
     - user.feed.each do |feed|
       = link_to "/posts/#{ feed.id }" do
         .feed-post
+          = user.full_name_by_post(feed)
+          = user.nickname_by_post(feed)
+          br
           = feed.title
           br
           = feed.body
@@ -12,6 +15,9 @@
     - current_user.feed.each do |feed|
       = link_to "/posts/#{ feed.id }" do
         .feed-post
+          = user.full_name_by_post(feed)
+          = user.nickname_by_post(feed)
+          br
           = feed.title
           br
           = feed.body
@@ -21,6 +27,9 @@
     - user.posts.each do |feed|
       = link_to "/posts/#{ feed.id }" do
         .feed-post
+          = user.full_name_by_post(feed)
+          = user.nickname_by_post(feed)
+          br
           = feed.title
           br
           = feed.body

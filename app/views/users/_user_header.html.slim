@@ -34,7 +34,6 @@
           = link_to 'follow', user_relationships_path(user), remote: true, method: :post
       - else 
         = link_to 'edit', edit_user_registration_path
-
     .full-name
       = user.full_name
     div

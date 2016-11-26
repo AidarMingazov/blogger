@@ -1,15 +1,16 @@
-/* feed */
 .feed{
-  display: inline-block; 
   margin-top: 15px;
   padding-top: 50px;
   width: 100%;
-  /*min-height: 100%;*/
-  background: #fff;
-  float: left;
+  background: white;
 }
 
 .feed-post{
   border: 1px solid #e1e8ed;
 }
-
+.feed-post:hover, 
+.feed-post:focus {
+  background: #f5f8fa; }
+.feed-post img{
+  border: none;
+}

@@ -7,6 +7,11 @@
   background: #074e68;
 }
 .index-profile{
+  border-left: 1px solid #017daa;
+  border-right: 1px solid #017daa;
+}
+.index-profile-statistic{
+  padding: 10px 0;
   border: 1px solid #017daa;
   border-top: none;
 }
@@ -26,4 +31,7 @@
   position: absolute;
   top: -51px;
   border-radius: 5px 5px 0 0; 
+}
+.row-distance{
+  margin-top: 25px;
 }
