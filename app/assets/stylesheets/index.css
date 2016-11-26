@@ -1,0 +1,29 @@
+.index-page{
+  padding: 25px 20px 0 20px;
+}
+.index-background-line{
+  height: 100px;
+  border-radius: 5px 5px 0 0;
+  background: #074e68;
+}
+.index-profile{
+  border: 1px solid #017daa;
+  border-top: none;
+}
+.reset-padding{
+  padding: 0;
+}
+.right-pad{
+  padding-right: 0;
+}
+
+.avatar-container{
+  position: relative;
+}
+.index-avatar{
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  top: -51px;
+  border-radius: 5px 5px 0 0; 
+}
