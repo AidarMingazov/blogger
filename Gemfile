@@ -30,7 +30,9 @@ gem 'decent_decoration', '~> 0.1.0'
 group :development, :test do
   gem 'byebug', platform: :mri
 end
-
+group :production do
+  gem 'rails_12factor'
+end
 group :development do
   gem 'web-console'
   gem 'listen', '~> 3.0.5'
