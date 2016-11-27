@@ -5,7 +5,10 @@
         .row.index-background-line
         .row.index-profile.white-background
           .small-6.medium-6.large-5.columns.avatar-container
-            img src="/assets/Profile-Avatar.jpg" alt="avatar" class="index-avatar"
+            - if current_user.avatar?
+              = image_tag(current_user.avatar_url(:thumb), class: 'index-avatar', alt: 'avatar')
+            - else
+              img src="/assets/default-avatar.jpg" alt="avatar" class="index-avatar"
           .small-6.medium-6.large-7.columns.reset-padding
             = current_user.full_name
             br

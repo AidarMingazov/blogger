@@ -20,6 +20,8 @@ gem 'slim'
 # all other gems
 gem 'devise'
 gem 'pundit'
+gem 'carrierwave', '>= 1.0.0.rc', '< 2.0'
+gem 'mini_magick'
 gem 'activemodel-serializers-xml', github: 'rails/activemodel-serializers-xml'
 gem 'draper', github: 'audionerd/draper', branch: 'rails5'
 gem 'decent_exposure', '3.0.0'

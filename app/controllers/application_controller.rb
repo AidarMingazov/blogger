@@ -17,7 +17,8 @@ class ApplicationController < ActionController::Base
     												:first_name, :last_name, :nickname)
   		end
 
-	    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :nickname, :email, :password, :current_password])
+	    devise_parameter_sanitizer.permit(:account_update, keys: 
+        [:first_name, :last_name, :nickname, :email, :password, :current_password, :password_confirmation])
     end
 
   def current_user

@@ -2,13 +2,15 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   # attr_accessor :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :nickname
-
   devise :database_authenticatable, 
   			 :registerable,
          :recoverable,
          :rememberable,
          :trackable,
          :validatable
+
+  mount_uploader :avatar, AvatarUploader
+  validate :avatar_image_size
 
   has_many :posts, dependent: :destroy
   has_many :comments
@@ -40,4 +42,12 @@ class User < ApplicationRecord
   def following?(other_user)
     following.include?(other_user)
   end
+
+  private
+
+    def avatar_image_size
+      if avatar.size > 5.megabytes
+        errors.add(:avatar, "should be less than 5MB")
+      end
+    end
 end

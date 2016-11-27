@@ -9,7 +9,7 @@
     ul.menu
       - if user_signed_in?
         li
-          = active_link_to 'edit', edit_user_registration_path, active: :exclusive
+          = active_link_to 'edit', "/users/#{current_user.id}/edit", active: :exclusive
         li
           = active_link_to 'sign out', destroy_user_session_path, :method => :delete, active: :exclusive
       - else

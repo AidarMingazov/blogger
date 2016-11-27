@@ -1,0 +1,11 @@
+= simple_form_for user, html: { multipart: true } do |f|
+  div.form-inputs
+    = f.input :first_name
+    = f.input :last_name
+    = f.input :nickname
+    label My Avatar
+    = image_tag(user.avatar_url) if user.avatar?
+    = f.file_field :avatar
+    = f.hidden_field :avatar_cache
+    = f.button :submit, 'Update'
+= link_to "Back", :back
