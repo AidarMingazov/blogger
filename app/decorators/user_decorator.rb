@@ -1,6 +1,6 @@
 class UserDecorator < ApplicationDecorator
   delegate_all
-  
+
   def full_name
     if first_name.blank? && last_name.blank?
       'No name provided.'
@@ -14,7 +14,12 @@ class UserDecorator < ApplicationDecorator
   end
 
   def full_name_by_post(post)
+    # TODO Why you are searching for user? You can use:
+    # user = user.post
+    # If some post exists - it should have user! Just add validation
+    # to be sure that post will not be saved withoud user_id
     user = User.find(post.user_id)
+
     if user.first_name.blank? && user.last_name.blank?
       'No name provided.'
     else
@@ -23,6 +28,7 @@ class UserDecorator < ApplicationDecorator
   end
 
   def nickname_by_post(post)
+    # TODO get_nickname(post.user)
     get_nickname(User.find(post.user_id))
   end
 

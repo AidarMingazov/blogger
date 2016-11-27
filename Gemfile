@@ -9,6 +9,7 @@ gem 'coffee-rails', '~> 4.2'
 
 gem 'foundation-rails'
 gem 'jquery-rails'
+# TODO remove this gem and all .jbuilder files in you dont use them
 gem 'jbuilder', '~> 2.5'
 
 # views
@@ -40,4 +41,5 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+# TODO remove this unless your you Windows for development
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

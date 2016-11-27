@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   # attr_accessor :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :nickname
-  devise :database_authenticatable, 
+  devise :database_authenticatable,
   			 :registerable,
          :recoverable,
          :rememberable,
@@ -15,6 +15,8 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :comments
 
+  # TODO
+  # Too complex :(
   has_many :active_relationships,  class_name:  "Relationship",
                                    foreign_key: "follower_id",
                                    dependent:   :destroy
@@ -22,7 +24,8 @@ class User < ApplicationRecord
   has_many :passive_relationships, class_name:  "Relationship",
                                    foreign_key: "followed_id",
                                    dependent:   :destroy
-
+  # TODO
+  # Too complex :(
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
 
@@ -34,7 +37,7 @@ class User < ApplicationRecord
   def follow(other_user)
     active_relationships.create(followed_id: other_user.id)
   end
-  
+
   def unfollow(other_user)
     active_relationships.find_by(followed_id: other_user.id).destroy
   end

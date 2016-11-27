@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
 
+  # TODO remove all comments generated automatically
   # GET /comments
   # GET /comments.json
   def index
@@ -29,6 +30,7 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.save
         format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
+        # TODO do you need render.json? Remove all lines you dont use!
         format.json { render :show, status: :created, location: @comment }
       else
         format.html { render :new }
