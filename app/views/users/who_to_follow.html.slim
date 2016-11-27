@@ -1,5 +1,8 @@
-br
-br
-- @who_to_follow.each do |user|
-  = link_to user.email, user
+- if user_signed_in?
   br
+  br
+  - @who_to_follow.each do |user|
+    = link_to user.email, user
+    br
+- else
+ - redirect_to root_path

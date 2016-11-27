@@ -1,6 +1,6 @@
 .who-to-follow-container.white-background
   |who to follow 
-  = link_to 'view all', users_path
+  = link_to 'view all', who_to_follow_path
   br
   - @who_to_follow.each do |can_follow|
     = link_to user.get_nickname(can_follow), can_follow
