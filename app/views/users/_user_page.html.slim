@@ -23,7 +23,7 @@
       - if user.avatar?
         = image_tag(user.avatar_url(:thumb), class: 'page-avatar', alt: 'avatar')
       - else
-        img src="/assets/default-avatar.jpg" alt="avatar" class="page-avatar"
+        = image_tag('default-avatar.jpg', class: 'page-avatar', alt: 'avatar')
       .user-info
         .follow
           - if !current_user.nil? && current_user != user
