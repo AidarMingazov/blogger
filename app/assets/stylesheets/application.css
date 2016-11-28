@@ -4,12 +4,6 @@
  *= require foundation_and_overrides
  */
 
-.avatar-container{
-  background-image: url("<%= @user.avatar.url %>")
-}
-.bor{
-  border: 1px solid black;
-}
 body{
   min-width: 900px;
   background-color: #f5f8fa;

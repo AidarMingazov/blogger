@@ -14,7 +14,8 @@ class UserDecorator < ApplicationDecorator
   end
 
   def full_name_by_post(post)
-    user = User.find(post.user_id)
+    # user = User.find(post.user_id)
+    user = post.user
     if user.first_name.blank? && user.last_name.blank?
       'No name provided.'
     else
@@ -23,7 +24,8 @@ class UserDecorator < ApplicationDecorator
   end
 
   def nickname_by_post(post)
-    get_nickname(User.find(post.user_id))
+    get_nickname(post.user)
+    # get_nickname(User.find(post.user_id))
   end
 
   def at_nickname
