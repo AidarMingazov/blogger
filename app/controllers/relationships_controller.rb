@@ -6,7 +6,7 @@ class RelationshipsController < ApplicationController
     if user != current_user
       current_user.follow(user)
       respond_to do |format|
-        format.js { redirect_to user }
+        format.js
       end
     end
   end
@@ -14,7 +14,7 @@ class RelationshipsController < ApplicationController
   def destroy
     current_user.unfollow(user)
     respond_to do |format|
-      format.js { redirect_to user }
+      format.js
     end
   end
 end
