@@ -4,6 +4,10 @@
  *= require foundation_and_overrides
  */
 
+/* TODO add gem "scss-linter" to you project, run it and fix all
+   warnings you will get.
+*/
+
 .avatar-container{
   background-image: url("<%= @user.avatar.url %>")
 }
