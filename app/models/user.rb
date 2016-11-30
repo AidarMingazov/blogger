@@ -6,11 +6,16 @@ class User < ApplicationRecord
           :trackable,
           :validatable
 
+  validates :first_name, length: { in: 2..12, too_short: 'too short first name', too_long: 'too long first name' }
+  validates :last_name, length: { in: 2..12, too_short: 'too short last name', too_long: 'too long last name' }
+  validates :nickname, uniqueness: { case_sensitive: false, message: '@nickname must be  uniq' }, 
+            length: { in: 2..12, too_short: 'too short nickname', too_long: 'too long nickname' }
+
   mount_uploader :avatar, AvatarUploader
   validate :avatar_image_size
 
   has_many :posts, dependent: :destroy
-  has_many :comments
+  has_many :comments, dependent: :destroy
   # Too complex
   has_many :active_relationships,  class_name:  "Relationship",
                                    foreign_key: "follower_id",
