@@ -5,7 +5,8 @@ class User < ApplicationRecord
           :rememberable,
           :trackable,
           :validatable
-
+  
+  validates :email, uniqueness: { case_sensitive: false, message: 'email already registered' }
   validates :first_name, length: { in: 2..12, too_short: 'too short first name', too_long: 'too long first name' }
   validates :last_name, length: { in: 2..12, too_short: 'too short last name', too_long: 'too long last name' }
   validates :nickname, uniqueness: { case_sensitive: false, message: '@nickname must be  uniq' }, 
