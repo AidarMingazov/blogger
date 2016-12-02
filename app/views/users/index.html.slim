@@ -17,7 +17,7 @@
           .small-4.medium-4.large-4.columns.statistic-btn-container
             = link_to "/users/#{ current_user.id }", class: 'statistic-btn' do
               |post
-              .div
+              .post-count
                 = current_user.posts.count
             end
           .small-4.medium-4.large-4.columns.white-background.statistic-btn-container
@@ -38,9 +38,9 @@
           .small-12.medium-12.show-for-small-only
             = render 'users/who_to_follow'
       .small-8.medium-8.large-8.columns.right-pad
-        .small-12.medium-12.large-8.columns.reset-padding
+        .small-12.medium-12.large-8.columns
           .row.small-12.medium-12.large-12.columns
-            | new post
+            = render 'posts/form'
           = render 'users/feed'
         .large-4.columns.show-for-large.reset-padding
           = render 'users/who_to_follow'

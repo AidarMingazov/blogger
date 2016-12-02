@@ -1,0 +1,13 @@
+.row.centered
+  .small-8.medium-8.large-8.small-centered.medium-centered.columns
+    h3.strong 
+      = post.title
+    strong
+      = post.body
+    
+    = post.user_id
+
+    = link_to 'Edit', edit_post_path(post)
+    br
+    = link_to 'Back', post_path
+

@@ -4,7 +4,7 @@
   .small-8.medium-8.large-8.columns
     = link_to user_path, class: "hollow button" do
       |post
-      .div
+      .post-count
         = user.posts.count
     end
     = link_to following_user_path, class: "hollow button" do

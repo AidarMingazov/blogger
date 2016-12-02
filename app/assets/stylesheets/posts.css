@@ -1,10 +1,7 @@
 .feed{
-  margin-top: 15px;
-  padding-top: 50px;
   width: 100%;
   background: white;
 }
-
 .feed-post{
   border: 1px solid #e1e8ed;
 }
@@ -13,4 +10,10 @@
   background: #f5f8fa; }
 .feed-post img{
   border: none;
+}
+.post-avatar{
+  height: 50px;
+  width: 50px;
+  display: inline;
+  float: left;
 }
