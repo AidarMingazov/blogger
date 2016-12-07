@@ -27,13 +27,23 @@ gem 'decent_decoration', '~> 0.1.0'
 
 group :development, :test do
   gem 'byebug', platform: :mri
+  gem 'spring-commands-rspec'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'faker'
 end
-group :production do
-  gem 'rails_12factor'
-end
+
 group :development do
   gem 'web-console'
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
+group :test do
+  gem 'capybara'
+end
+
+group :production do
+  gem 'rails_12factor'
 end
