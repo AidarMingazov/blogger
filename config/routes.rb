@@ -19,4 +19,8 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  
+  namespace :api, path: '/', constraints: { subdomain: 'api' } do
+    resources :users, only: [:index, :show]
+  end
 end
