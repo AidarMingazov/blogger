@@ -1,25 +1,15 @@
-# README
+# Blogger
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Sandbox Project
 
-Things you may want to cover:
+[![Build Status](https://semaphoreci.com/api/v1/aydarmingazov/blogger/branches/master/shields_badge.svg)](https://semaphoreci.com/aydarmingazov/blogger)
 
-* Ruby version
+[![Code Climate](https://codeclimate.com/github/AidarMingazov/blogger/badges/gpa.svg)](https://codeclimate.com/github/AidarMingazov/blogger)
+[![Test Coverage](https://codeclimate.com/github/AidarMingazov/blogger/badges/coverage.svg)](https://codeclimate.com/github/AidarMingazov/blogger)
+[![Issue Count](https://codeclimate.com/github/AidarMingazov/blogger/badges/issue_count.svg)](https://codeclimate.com/github/AidarMingazov/blogger)
 
-* System dependencies
+## Resources
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# blogger
+- Testing server: [https://secure-crag-80882.herokuapp.com](https://secure-crag-80882.herokuapp.com)
+- Tasks: [https://www.pivotaltracker.com/n/projects/1915971](https://www.pivotaltracker.com/n/projects/1915971)
+- CI: [https://semaphoreci.com/aydarmingazov/blogger](https://semaphoreci.com/aydarmingazov/blogger)
