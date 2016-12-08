@@ -28,6 +28,10 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
 
+  def User.new_token
+    SecureRandom.urlsafe_base64
+  end
+
   def feed
     following_ids = "SELECT followed_id FROM relationships WHERE  follower_id = :user_id"
     Post.where("user_id IN (#{following_ids}) OR user_id = :user_id", user_id: id)
@@ -50,6 +54,13 @@ class User < ApplicationRecord
     def avatar_image_size
       if avatar.size > 5.megabytes
         errors.add(:avatar, "should be less than 5MB")
+      end
+    end
+
+    def generate_authentication_token
+      loop do
+        self.authentication_token = SecureRandom.base64(64)
+        break unless User.find_by(authentication_token: authentication_token)
       end
     end
 end

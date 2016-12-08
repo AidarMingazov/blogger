@@ -1,10 +1,25 @@
-class Api::V1::UsersController < Api::V1::ApplicationController
-  ApiController.any_instance.stub(:authenticate)
-  def show
-    @user = User.find(params[:id])
-  end
+class API::V1::UsersController < API::V1::ApplicationController
 
   def index
-    @users = User.all
+    users = User.all
+    
+    # ActiveModel::Serializer::CollectionSerializer.new(users, each_serializer: API::V1::UserSerializer)
+    # render json: ActiveModel::Serializer::CollectionSerializer.new(User.all, each_serializer: API::V1::UserSerializer),status: 200
+    
+    # render( json: ActiveModel::CollectionSerializer.new(users, each_serializer: API::V1::UserSerializer) )
+
+    render(
+      json: ActiveModel::ArraySerializer.new(
+        users,
+        each_serializer: Api::V1::UserSerializer,
+        root: 'users',
+        meta: meta_attributes(users)
+      )
+    )
+  end
+
+  def show
+    user = User.find(params[:id])
+    render json: user, each_serializer: API::V1::UserSerializer
   end
 end
