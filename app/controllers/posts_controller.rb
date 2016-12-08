@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   expose_decorated :post
 
   def index
-    posts = Post.all
+    @posts = Post.all
   end
 
   def new
