@@ -26,6 +26,7 @@ gem 'decent_exposure', '3.0.0'
 gem 'decent_decoration', '~> 0.1.0'
 gem 'active_hash_relation'
 gem 'active_model_serializers', '~> 0.10.0'
+gem 'nokogiri'
 
 group :development, :test do
   gem 'byebug', platform: :mri
@@ -33,6 +34,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'faker'
+  gem 'cucumber-rails', :require => false
+  gem 'database_cleaner'
 end
 
 group :development do
