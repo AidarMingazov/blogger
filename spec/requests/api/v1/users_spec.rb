@@ -1,19 +1,79 @@
 require 'rails_helper'
 
 describe API::V1::UsersController do
-  
-  5.times{ FactoryGirl.create(:user) }
+  context :index do
+    before do
+      @user_count = 5
+      @user_count.times{ FactoryGirl.create(:user) }
+      get api_v1_users_path, format: :json
+    end
 
-  it 'responds successfully with an HTTP 200 status code' do  
-    get api_v1_users_path, format: :json
-    expect(response).to be_success
-    expect(response).to have_http_status(200)
+    it 'responds successfully with an HTTP 200 status code' do  
+      expect(response).to be_success
+      expect(response).to have_http_status(200)
+    end
+
+    it 'responds with user list' do
+      expect(User.count).to eq(@user_count)
+    end
+
+    it 'do NOT responds users tokens' do
+      is_expected(User).to have_attributes(:authentication_token)
+    end
   end
 
-  it 'responds with user list' do
-    get api_v1_users_path, format: :json
-    # expect(response).to 
+  context :show do
+    before do
+      @user = FactoryGirl.create(:user) 
+      get api_v1_users_path(@user), format: :json
+    end
+
+    it 'responds successfully with an HTTP 200 status code' do  
+      expect(response).to be_success
+      expect(response).to have_http_status(200)
+    end
+
+    it 'responds user attributes' do
+      expect(@user).to have_attributes(id: @user.id, email: @user.email, first_name: @user.first_name, 
+                                      last_name: @user.last_name, nickname: @user.nickname,
+                                      created_at: @user.created_at, updated_at: @user.updated_at)
+    end
+
+    it 'do NOT responds user token' do
+      is_expected(@user).to have_attributes(:authentication_token)
+    end
   end
+
+  context :update do
+    before do
+      @user = FactoryGirl.create(:user) 
+      # get "/api/v1/users/#{ @user.id }", format: :json
+      # login(@user)
+      sign_in(@user)
+      # page.driver.post new_user_session_path, '@user[email]' => @user.email, 'user[password]' => 'password123'
+
+      # @first_name = 'Another name'
+      # @user.first_name = @first_name
+      # put api_v1_user_path(@user.id), user: @user.as_json, format: :json
+      get api_v1_users_path(@user), format: :json
+
+    end
+
+    it 'responds successfully with an HTTP 200 status code' do  
+      expect(response).to be_success
+      expect(response).to have_http_status(200)
+    end
+
+
+    it 'returns attributes' do
+      # expect(@user).to only(:email, :name, :admin, :activated, :id)
+    end
+
+    it 'do NOT responds user token' do
+      is_expected(@user).to have_attributes(:authentication_token)
+    end
+  end
+
 end
 
 
