@@ -12,6 +12,10 @@ class User < ApplicationRecord
   validates :nickname, uniqueness: { case_sensitive: false, message: '@nickname must be  uniq' }, 
             length: { in: 2..12, too_short: 'too short nickname', too_long: 'too long nickname' }
 
+  before_validation do |user|
+    user.nickname = generate_nickname(user)
+  end
+
   mount_uploader :avatar, AvatarUploader
   validate :avatar_image_size
 
@@ -50,6 +54,16 @@ class User < ApplicationRecord
     def avatar_image_size
       if avatar.size > 5.megabytes
         errors.add(:avatar, "should be less than 5MB")
+      end
+    end
+
+    def generate_nickname(user)
+      nickname = "#{ user.first_name }_#{ user.last_name }"[0..11]
+      i = 100
+      loop do
+        break nickname unless self.class.exists?(nickname: nickname)
+        nickname = "#{ user.first_name }"[0..9] + i.to_s
+        i+=1
       end
     end
 end
