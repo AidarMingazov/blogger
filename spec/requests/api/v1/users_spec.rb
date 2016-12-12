@@ -28,13 +28,17 @@ describe API::V1::UsersController do
       
     end
 
+    def token_header(token)
+      ActionController::HttpAuthentication::Token.encode_credentials(token)
+    end
+
     it 'valid authentication with token' do
-      get api_v1_user_path(@user), {}, { Authorization:  "#{ @user.authentication_token }"}
+      get api_v1_user_path(@user), {}, { Authorization: token_header(@user.authentication_token)}
       expect(response).to have_http_status(200)
     end
 
     it 'invalid authentication with token' do
-      get api_v1_user_path(@user), {}, { Authorization:  "#{ @user.authentication_token }+fake"}
+      get api_v1_user_path(@user), {}, { Authorization: token_header("fake")}
       expect(response).to have_http_status(401)
     end
 

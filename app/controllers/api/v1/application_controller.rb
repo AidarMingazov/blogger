@@ -1,18 +1,20 @@
 class API::V1::ApplicationController < ActionController::Base
-  # include ActionController::HttpAuthentication::Token::ControllerMethods
-  respond_to :json
-
   before_action :authenticate
+  respond_to :json
 
   protected
 
     def authenticate
-      authenticate_token || render_unauthorized
+      set_current_user || render_unauthorized
+    end
+
+    def set_current_user
+      @current_user = authenticate_token
     end
 
     def authenticate_token
       authenticate_with_http_token do |token, options|
-        @current_user = User.find_by(authentication_token: token)
+        User.find_by(authentication_token: token)
       end
     end
 

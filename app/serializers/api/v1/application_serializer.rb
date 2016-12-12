@@ -1,4 +1,4 @@
-class API::V1::BaseSerializer < ActiveModel::Serializer
+class API::V1::ApplicationSerializer < ActiveModel::Serializer
   def created_at
     object.created_at.in_time_zone.iso8601 if object.created_at
   end

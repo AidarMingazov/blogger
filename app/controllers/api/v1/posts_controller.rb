@@ -1,5 +1,5 @@
 class API::V1::PostsController < API::V1::ApplicationController
-  # skip_before_action :authenticate, only: [:index, :show]
+  skip_before_action :authenticate, only: [:show]
   before_action :set_post, only: [:show, :update, :destroy]
 
   def index
@@ -11,28 +11,19 @@ class API::V1::PostsController < API::V1::ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = @current_user.posts.create(post_params)
     @post.save
   end
 
   def update
-    @post = Post.find(params[:id])
-    @post.assign_attributes(post_params)
-    @post.save
+    if @post.assign_attributes(post_params)
+      render json: @post, status: 200
+      @post.update
+    end
   end
 
   def destroy
     @post.destroy
-  end
-
-  def upvote
-    @post = Post.select('id, upvotes').find params[:id]
-    @post.increment!(:upvotes) if @post
-  end
-
-  def downvote
-    @post = Post.select('id, downvotes').find params[:id]
-    @post.increment!(:downvotes) if @post
   end
 
   private

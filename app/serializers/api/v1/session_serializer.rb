@@ -1,4 +1,4 @@
-class API::V1::SessionSerializer < API::V1::BaseSerializer 
+class API::V1::SessionSerializer < API::V1::ApplicationSerializer 
 
 attributes :id, :email, :token
 
