@@ -1,5 +1,5 @@
 class API::V1::ApplicationController < ActionController::Base
-  include ActionController::HttpAuthentication::Token::ControllerMethods
+  # include ActionController::HttpAuthentication::Token::ControllerMethods
   respond_to :json
 
   before_action :authenticate
@@ -18,6 +18,6 @@ class API::V1::ApplicationController < ActionController::Base
 
     def render_unauthorized(realm = "Application")
       self.headers["WWW-Authenticate"] = %(Token realm="#{realm.gsub(/"/, "")}")
-      render json: 'Bad credentials', status: :401
+      render json: 'Bad credentials', status: 401
     end
 end

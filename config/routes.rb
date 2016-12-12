@@ -26,12 +26,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
-      resources :posts, only: [:index, :show, :update, :destroy] do
-        member do
-          put :upvote
-          put :downvote
-        end
-      end
+      resources :posts, only: [:index, :show, :update, :destroy]
       resources :users, only: [:show, :create, :update, :destroy]
       # devise_for :users, :controllers => {sessions: 'api/v1/sessions', registrations: 'api/v1/registrations'}
     end
