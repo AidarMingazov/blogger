@@ -10,10 +10,18 @@ RSpec.describe User, :type => :model do
     expect(@user).to be_valid
   end
 
-  it 'is generate nickname with valid attributes' do
+  it 'is generate valid nickname with valid attributes' do
     expect(@user).to have_attributes(nickname: "#{ @user.nickname }")
     expect(@user).to_not have_attributes(nickname: nil)
   end
+
+
+  it 'is generate valid nickname with logn name' do
+    user = User.new(email: "another#{@user.email}", first_name: "12345678901",
+                    last_name: "#12345678901", password: '123456', password_confirmation: '123456')
+    expect(user).to be_valid
+  end
+
 
   it 'is generate token with valid attributes' do
     expect(@user).to have_attributes(authentication_token: "#{ @user.authentication_token }")

@@ -13,8 +13,8 @@ class User < ApplicationRecord
             length: { in: 2..12, too_short: 'too short nickname', too_long: 'too long nickname' }
 
   before_validation do |user|
-    user.nickname = generate_nickname(user)
     user.authentication_token = generate_authentication_token
+    user.nickname = generate_nickname(user)    
   end
 
   mount_uploader :avatar, AvatarUploader
@@ -62,6 +62,7 @@ class User < ApplicationRecord
       loop do
         token = SecureRandom.hex
         break token unless self.class.exists?(authentication_token: token)
+      end
     end
     
     def generate_nickname(user)
@@ -69,7 +70,8 @@ class User < ApplicationRecord
       i = 100
       loop do
         break nickname unless self.class.exists?(nickname: nickname)
-        nickname = "#{ user.first_name }"[0..9] + i.to_s
+        nickname = "#{ user.first_name }"
+        nickname = nickname[0..9] + i.to_s
         i+=1
       end
     end
