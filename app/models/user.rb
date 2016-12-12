@@ -70,8 +70,8 @@ class User < ApplicationRecord
       i = 100
       loop do
         break nickname unless self.class.exists?(nickname: nickname)
-        nickname = "#{ user.first_name }"
-        nickname = nickname[0..9] + i.to_s
+        nickname = "#{user.first_name}"[0..8]
+        nickname = nickname + i.to_s
         i+=1
       end
     end
