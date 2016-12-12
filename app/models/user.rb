@@ -12,7 +12,8 @@ class User < ApplicationRecord
   validates :nickname, uniqueness: { case_sensitive: false, message: '@nickname must be  uniq' }, 
             length: { in: 2..12, too_short: 'too short nickname', too_long: 'too long nickname' }
 
-  before_create do |user|
+  before_validation do |user|
+    user.nickname = generate_nickname(user)
     user.authentication_token = generate_authentication_token
   end
 
@@ -61,6 +62,15 @@ class User < ApplicationRecord
       loop do
         token = SecureRandom.hex
         break token unless self.class.exists?(authentication_token: token)
+    end
+    
+    def generate_nickname(user)
+      nickname = "#{ user.first_name }_#{ user.last_name }"[0..11]
+      i = 100
+      loop do
+        break nickname unless self.class.exists?(nickname: nickname)
+        nickname = "#{ user.first_name }"[0..9] + i.to_s
+        i+=1
       end
     end
 end
