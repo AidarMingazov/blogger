@@ -12,6 +12,10 @@ class User < ApplicationRecord
   validates :nickname, uniqueness: { case_sensitive: false, message: '@nickname must be  uniq' }, 
             length: { in: 2..12, too_short: 'too short nickname', too_long: 'too long nickname' }
 
+  before_create do |user|
+    user.authentication_token = generate_authentication_token
+  end
+
   mount_uploader :avatar, AvatarUploader
   validate :avatar_image_size
 
@@ -27,24 +31,6 @@ class User < ApplicationRecord
   # Too complex
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
-
-  def User.new_token
-    SecureRandom.urlsafe_base64
-  end
-
-  def authenticated?(attribute, token)
-    digest = send("#{attribute}_digest")
-    return false if digest.nil?
-    BCrypt::Password.new(digest).is_password?(token)
-  end
-
-  # Returns the hash digest of the given string.
-  def User.digest(string)
-    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
-                                                  BCrypt::Engine.cost
-    BCrypt::Password.create(string, cost: cost)
-  end
-
 
   def feed
     following_ids = "SELECT followed_id FROM relationships WHERE  follower_id = :user_id"
@@ -73,8 +59,8 @@ class User < ApplicationRecord
 
     def generate_authentication_token
       loop do
-        self.authentication_token = SecureRandom.base64(64)
-        break unless User.find_by(authentication_token: authentication_token)
+        token = SecureRandom.base64.tr('+/=', 'Qrt')
+        break token unless User.exists?(authentication_token: token)
       end
     end
 end
