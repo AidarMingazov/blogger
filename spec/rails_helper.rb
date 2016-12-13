@@ -15,6 +15,5 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
   config.include Requests::JsonHelpers, type: :request
-  config.include Devise::Test::ControllerHelpers, type: :controller
-  config.include Devise::Test::ControllerHelpers, type: :view
+  config.include FactoryGirl::Syntax::Methods
 end
