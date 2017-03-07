@@ -43,10 +43,12 @@
         div
           | Joined
           = user.joined_at
-  .small-8.medium-8.large-8.columns
+  .small-6.medium-6.large-6.columns
     - if current_page?(user_path)
       = render 'feed'
     - elsif current_page?(following_user_path)
       = render 'following'
     - elsif current_page?(followers_user_path)
       = render 'followers'
+
+  .small-2.medium-2.large-2.columns

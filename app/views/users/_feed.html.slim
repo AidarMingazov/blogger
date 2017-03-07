@@ -1,36 +1,41 @@
-.feed
+feed
   / feed
   - if current_page?(root_url)
     - current_user.feed.each do |feed|
-      = link_to "/posts/#{ feed.id }" do
-        .feed-post
-          .post-avatar
-            / = link_to "/users/#{ feed.user.id }", class: 'check' do
+      / = link_to "/posts/#{ feed.id }" do
+      .row.full-width.feed-post.no-pad
+        .small-2.medium-2.large-2.columns.post-avatar
+          = link_to "/users/#{ feed.user.id }", class: 'check' do
             - if feed.user.avatar?
               = image_tag(feed.user.avatar_url(:small), alt: 'avatar')
             - else
               = image_tag('default-avatar.jpg', alt: 'avatar')
-          = "#{ user.post_owner(feed) }"
-          = "#{ post.published_at(feed) }"
-          br
+        .small-10.medium-10.large-10.columns.no-pad
+          .small-7.medium-7.large-7.columns.no-pad
+            = link_to "#{ user.post_owner_nickname(feed) }", "/users/#{ feed.user.id }"
+          .small-5.medium-5.large-5.columns.no-pad
+            = "#{ post.published_at(feed) }"
+          
           = feed.title
           br
           = feed.body
-  / user post
+  / user posts
   - else
-    - user.posts.each do |feed|
-      = link_to "/posts/#{ feed.id }" do
-        .feed-post
-          .post-avatar
+    - user.posts.reverse.each do |feed|
+      /  = link_to "/posts/#{ feed.id }" do
+      .row.full-width.feed-post.no-pad
+        .small-2.medium-2.large-2.columns.post-avatar
+          = link_to "/users/#{ feed.user.id }", class: 'check' do
             - if feed.user.avatar?
               = image_tag(feed.user.avatar_url(:small), alt: 'avatar')
             - else
               = image_tag('default-avatar.jpg', alt: 'avatar')
-          = "#{ user.post_owner(feed) }"
-          / почему нельзя published_at_by_post ?
-          / = "#{ post.published_at_by_post(feed) }"
-          = "#{ feed.created_at.strftime("%d %B %Y") }"
-          br
+        .small-10.medium-10.large-10.columns.no-pad
+          .small-7.medium-7.large-7.columns.no-pad
+            = link_to "#{ user.post_owner_nickname(feed) }", "/users/#{ feed.user.id }"
+          .small-5.medium-5.large-5.columns.no-pad
+            = "#{ feed.created_at.strftime("%d %B %Y") }"
+          
           = feed.title
           br
           = feed.body

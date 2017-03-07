@@ -1,9 +1,13 @@
 .feed{
   width: 100%;
-  background: white;
+  padding: 0 0 0 0;
 }
 .feed-post{
+  margin-top: 2px;
   border: 1px solid #e1e8ed;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+  background: white;
 }
 .feed-post:hover, 
 .feed-post:focus {
@@ -12,11 +16,15 @@
   border: none;
 }
 .post-avatar{
-  height: 50px;
-  width: 50px;
+  max-height: 50px;
+  max-width: 50px;
+  padding: 0 0 0 0 !important;
   display: inline;
   float: left;
 }
 .post_textarea{
   max-height: 200px;
+}
+.no-pad{
+  padding: 0 0 0 0 !important;
 }

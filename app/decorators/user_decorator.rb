@@ -13,6 +13,10 @@ class UserDecorator < ApplicationDecorator
     "#{ full_name_by_post(post) } #{ nickname_by_post(post) }".strip
   end
 
+  def post_owner_nickname(post)
+    "#{ nickname_by_post(post) }"
+  end
+
   def full_name_by_post(post)
     # user = User.find(post.user_id)
     user = post.user
