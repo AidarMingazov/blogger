@@ -8,3 +8,5 @@ $(function(){
   
   autosize($('textarea'));
 });
+
+$(function(){ $(document).foundation(); });
