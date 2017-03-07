@@ -12,23 +12,18 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'users/:id' => 'users#show'
-  get 'who_to_follow' => 'users#who_to_follow'
+  get 'users/:id', to: 'users#show'
+  get 'who_to_follow', to: 'users#who_to_follow'
 
   resources :posts do
     resources :comments
   end
   
-  # namespace :api, path: '/', constraints: { subdomain: 'api' } do
-  #   resources :users, only: [:index, :show]
-  #   resources :posts, only: [:index, :show]
-  # end
-
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resources :posts, only: [:index, :show, :update, :destroy]
       resources :users, only: [:show, :create, :update, :destroy]
-      # devise_for :users, :controllers => {sessions: 'api/v1/sessions', registrations: 'api/v1/registrations'}
+      post 'login', to: 'sessions#create', as: :login
     end
   end
 end

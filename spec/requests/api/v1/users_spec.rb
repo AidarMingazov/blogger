@@ -21,6 +21,7 @@ describe API::V1::UsersController do
     end
 
     it 'invalid authentication with token' do
+      # вывести в метод
       @request_headers = {
         "Accept" => "application/json",
         "Content-Type" => "application/json",
@@ -31,6 +32,7 @@ describe API::V1::UsersController do
     end
 
     it 'responds user attributes' do
+      # user.attributes
       expect(@user).to have_attributes(id: @user.id, email: @user.email, first_name: @user.first_name, 
                                       last_name: @user.last_name, nickname: @user.nickname,
                                       created_at: @user.created_at, updated_at: @user.updated_at)
@@ -39,7 +41,7 @@ describe API::V1::UsersController do
 
   context :update do
     before do
-      @user = create(:user) 
+      let(:user) { create(:user) }
       @first_name = "anothe_name"
       @user.first_name = @first_name
       
@@ -59,13 +61,14 @@ describe API::V1::UsersController do
       put "/api/v1/users/#{@user.id}", @user_params, @request_headers  
     end
 
-    it 'responds successfully with an HTTP 200 status code' do  
+    it 'responds successfully with an HTTP 202 status code' do  
       expect(response).to be_success
-      expect(response).to have_http_status(200)
+      expect(response).to have_http_status(202)
     end
 
     it 'is successful update' do
-      expect(@user).to have_attributes(first_name: "#{ @first_name }")
+      # fix
+      expect(@user).to have_attributes(first_name: "#{ @user: first_name }")
     end
   end
 

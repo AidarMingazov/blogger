@@ -13,9 +13,7 @@ class API::V1::ApplicationController < ActionController::Base
     end
 
     def authenticate_token
-      authenticate_with_http_token do |token, options|
-        User.find_by(authentication_token: token)
-      end
+      User.find_by(authentication_token: request.headers["X-Token"])
     end
 
     def render_unauthorized(realm = "Application")

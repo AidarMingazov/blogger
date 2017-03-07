@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe User, :type => :model do
-
+  # rewrite 
+  # тестить модель, а не фабрику
   before :each do
     @user = FactoryGirl.create(:user)
   end
