@@ -17,3 +17,6 @@
   display: inline;
   float: left;
 }
+.post_textarea{
+  max-height: 200px;
+}
