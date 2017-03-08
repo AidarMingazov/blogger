@@ -1,0 +1,23 @@
+                                       List of databases
+            Name             | Owner | Encoding |   Collate   |    Ctype    | Access privileges 
+-----------------------------+-------+----------+-------------+-------------+-------------------
+ aydar-architect_dev         | aydar | UTF8     | ru_RU.UTF-8 | ru_RU.UTF-8 | 
+ aydar-architect_development | aydar | UTF8     | ru_RU.UTF-8 | ru_RU.UTF-8 | 
+ aydar-architect_test        | aydar | UTF8     | ru_RU.UTF-8 | ru_RU.UTF-8 | 
+ blogger_development         | aydar | UTF8     | ru_RU.UTF-8 | ru_RU.UTF-8 | 
+ blogger_test                | aydar | UTF8     | ru_RU.UTF-8 | ru_RU.UTF-8 | 
+ eventer_dev                 | aydar | UTF8     | ru_RU.UTF-8 | ru_RU.UTF-8 | 
+ eventer_test                | aydar | UTF8     | ru_RU.UTF-8 | ru_RU.UTF-8 | 
+ mind-game_dev               | aydar | UTF8     | ru_RU.UTF-8 | ru_RU.UTF-8 | 
+ mind-game_test              | aydar | UTF8     | ru_RU.UTF-8 | ru_RU.UTF-8 | 
+ postgres                    | aydar | UTF8     | ru_RU.UTF-8 | ru_RU.UTF-8 | 
+ template0                   | aydar | UTF8     | ru_RU.UTF-8 | ru_RU.UTF-8 | =c/aydar         +
+                             |       |          |             |             | aydar=CTc/aydar
+ template1                   | aydar | UTF8     | ru_RU.UTF-8 | ru_RU.UTF-8 | =c/aydar         +
+                             |       |          |             |             | aydar=CTc/aydar
+ test_app2_development       | aydar | UTF8     | ru_RU.UTF-8 | ru_RU.UTF-8 | 
+ test_app2_test              | aydar | UTF8     | ru_RU.UTF-8 | ru_RU.UTF-8 | 
+ test_app_development        | aydar | UTF8     | ru_RU.UTF-8 | ru_RU.UTF-8 | 
+ test_app_test               | aydar | UTF8     | ru_RU.UTF-8 | ru_RU.UTF-8 | 
+(16 rows)
+
